@@ -1,34 +1,41 @@
+#include "Number.h"
+#include "Vector.h"
+#include "Math.h"
 #include <iostream>
-#include "List.h"
 using namespace std;
 
+void func(Math);
+void func(Number);
+
 int main(void) {
-	nList nodeList;
-	int m, n;
-	cout << "Please input value, end by -1:";
-	nodeList.linkList();
-	nodeList.showList();
-	cout << endl << "Please Enter one number to delete:";
-	cin >> n;
-	if (nodeList.delNode(n)) {
-		cout << "Delete Success" << endl;
-		nodeList.showList();
-	}
-	else
-		cout << "Number not exist" << endl;
-	cout << endl << "Please Enter one number to add and which number its behind:";
-	cin >> m >> n;
-	List add = { m };
-	if (nodeList.insNode(n, add)) {
-		cout << "Insert Success" << endl;
-		nodeList.showList();
-	}
-	else
-		cout << "Number not exist" << endl;
-	cout << endl << "Please input one number to add:";
-	cin >> m;
-	add = { m };
-	nodeList.addNode(add);
-	nodeList.showList();
+	int tmp;
+	cout << "Please input a number:"; 
+	cin >> tmp;
+
+	Number n;
+	n.setNumber(tmp);
+
+	Vector a;
+	a.setNumber(n, 0.5f);
+
+	Math m;
+	m.setNumber(a);
+
+	func(m);
 	return 0;
+}
+
+void func(Math m) {
+	if (m.is2multiple())
+		cout << "is 2's multiple" << endl;
+	else
+		cout << "is not 2's multiple" << endl;
+}
+
+void func(Number m) {
+	Math n(m);
+	if (n.is2multiple())
+		cout << "is 2's multiple" << endl;
+	else
+		cout << "is not 2's multiple" << endl;
 }
