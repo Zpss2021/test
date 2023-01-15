@@ -1,3 +1,2 @@
 # test
-test repository
-some changes in here
+A simple example for learing C++ OOP
